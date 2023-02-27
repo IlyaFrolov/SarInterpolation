@@ -1,0 +1,2 @@
+cuda_add_library(interpolation_cuda interpolation_cuda.hpp interpolation_cuda.cu)
+target_include_directories(interpolation_cuda INTERFACE .)

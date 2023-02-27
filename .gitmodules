@@ -1,0 +1,3 @@
+[submodule "third_party/eigen"]
+	path = third_party/eigen
+	url = git@gitlab.mmcp.mipt.ru:third_party/cpp/eigen.git
