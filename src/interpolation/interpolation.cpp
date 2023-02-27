@@ -30,12 +30,9 @@ namespace interpolation
 		double kernels_step = 1.0 / (static_cast<double>(n_kernels) - 1.0);
 		//int n_procs = 1;
 		//n_procs = omp_get_num_procs();
-        #pragma omp parallel shared(kernels, samples, new_indexes, result) //num_threads=n_procs
+        #pragma omp parallel shared(kernels, samples, new_indexes, result) num_threads(omp_get_num_procs())
 		{
-			int thread_id = 0;
-#ifdef _OPENMP
-			thread_id = omp_get_thread_num();
-#endif
+			int thread_id = omp_get_thread_num();
 			for (int line_i = thread_id; line_i < new_indexes.rows(); line_i += omp_get_num_procs())
 			{
 				for (int i = 0; i < new_indexes.cols(); i += 1)
