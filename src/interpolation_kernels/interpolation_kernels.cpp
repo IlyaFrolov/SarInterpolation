@@ -1,15 +1,14 @@
 #define _USE_MATH_DEFINES
 
 #include "interpolation_kernels.hpp"
-#include "eigen3/Eigen/Dense"
 #include <exception>
 #include <iostream>
 
 
 namespace interpolation
 {
+    using Eigen::placeholders::last;
 	using Eigen::seq;
-	using Eigen::last;
 
 	template<typename T>
 	Matrix<T> generate_sinc_kernels(double step, int stencil_size)

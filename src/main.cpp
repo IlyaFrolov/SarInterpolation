@@ -6,6 +6,8 @@
 
 
 using interpolation::Matrix;
+using Eigen::placeholders::last;
+using Eigen::seq;
 int main()
 {
 	Matrix<double> kernels = interpolation::generate_sinc_kernels <double> ();
@@ -14,7 +16,7 @@ int main()
 	Matrix<double> result;
 
 	for (size_t j = 0; j < new_indexes.cols(); j += 1)
-		new_indexes(Eigen::seq(0, Eigen::last), j) += Matrix<double>::Constant(new_indexes.rows(), 1, j);
+		new_indexes(seq(0, last), j) += Matrix<double>::Constant(new_indexes.rows(), 1, j);
 
 	std::cout << "start" << std::endl;
 	interpolation::interpolate_cpu(kernels, samples, new_indexes, result);

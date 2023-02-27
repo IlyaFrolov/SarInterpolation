@@ -1,7 +1,7 @@
 #ifndef interpolation_types_H
 #define interpolation_types_H
 
-#include <eigen3/Eigen/Dense>
+#include "Eigen/Dense"
 
 namespace interpolation
 {

@@ -6,8 +6,8 @@
 
 namespace interpolation
 {
+	using Eigen::placeholders::last;
 	using Eigen::seq;
-	using Eigen::last;
 
 	template<typename T>
 	void interpolate_cpu(const Matrix<T>& kernels, const Matrix<T>& samples, const Matrix<double>& new_indexes, Matrix<T>& result)
